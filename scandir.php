@@ -2,11 +2,12 @@
  /**
  * ScanDir
  *
- * @version 1.0 (beta)
- * @author JLend (info@jlend.ru)
- * @copyright (C) 2016 by JLend(http://www.jlend.ru)
- * @license GNU/GPL: http://www.gnu.org/copyleft/gpl.html
+ * @version		1.0 (beta)
+ * @author		JLend (info@jlend.ru)
+ * @copyright	(C) 2016 by JLend(http://www.jlend.ru)
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
  **/
+ 
 defined('_JEXEC') or die('Restricted Access');
 
 class plgSystemScanDir extends JPlugin {
