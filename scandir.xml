@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="system" method="upgrade">
+	<name>PLG_SYSTEM_SCANDIR</name>
+	<author>JLend</author>
+	<creationDate>18-01-2016</creationDate>
+	<copyright>Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>jlend@yandex.ru</authorEmail>
+	<authorUrl>www.jlend.ru</authorUrl>
+	<version>1.0</version>
+	<description>PLG_SYSTEM_SCANDIR_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="scandir">scandir.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+		<language tag="ru-RU">language/ru-RU/ru-RU.plg_system_scandir.ini</language>
+		<language tag="ru-RU">language/ru-RU/ru-RU.plg_system_scandir.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+
+			<fieldset name="basic">
+				<field type="text" name="file" label="PLG_SCANDIR_FIELD_FILE_LABEL" description="PLG_SCANDIR_FIELD_FILE_DESC" default="scan_dir" />
+				<field type="text" name="email" label="PLG_SCANDIR_FIELD_EMAIL_LABEL" description="PLG_SCANDIR_FIELD_EMAIL_DESC" />
+				<field type="text" name="time" label="PLG_SCANDIR_FIELD_TIME_LABEL" description="PLG_SCANDIR_FIELD_TIME_DESC" default="1440" />
+				<field name="scan" type="list"
+					description="PLG_SCANDIR_FIELD_SCAN_DESC"
+					label="PLG_SCANDIR_FIELD_SCAN_LABEL"
+					default="0"
+				>
+					<option value="0">PLG_SCANDIR_FIELD_SCAN_ATTRIBUTES</option>
+					<option value="1">PLG_SCANDIR_FIELD_SCAN_CONTENT</option>
+				</field>
+				<field
+					name="exclude_dir"
+					type="textarea"
+					filter="safehtml"
+					rows="3"
+					cols="40"
+					label="PLG_SCANDIR_FIELD_EXCLUDE_DIR_LABEL"
+					description="PLG_SCANDIR_FIELD_EXCLUDE_DIR_DESC" />
+
+				<field
+					name="exclude_ext"
+					type="textarea"
+					filter="safehtml"
+					rows="3"
+					cols="40"
+					label="PLG_SCANDIR_FIELD_EXCLUDE_EXT_LABEL"
+					description="PLG_SCANDIR_FIELD_EXCLUDE_EXT_DESC" />
+				<field
+					name="exclude_file"
+					type="textarea"
+					filter="safehtml"
+					rows="3"
+					cols="40"
+					label="PLG_SCANDIR_FIELD_EXCLUDE_FILE_LABEL"
+					description="PLG_SCANDIR_FIELD_EXCLUDE_FILE_DESC" />
+			</fieldset>
+
+		</fields>
+	</config>
+</extension>
