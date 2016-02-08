@@ -4,14 +4,14 @@
  *
  * @version          1.0 (beta)
  * @author           Участники сообщества joomlaforum.ru
- *					 JLend (info@jlend.ru)
- *					 Профиль пользователя: http://joomlaforum.ru/index.php?action=profile;u=190209
- *					 Филипп Сорокин (Philip Sorokin) (philip.sorokin@gmail.com) https://addondev.com 
- *					 Профиль пользователя: http://joomlaforum.ru/index.php?action=profile;u=189546
+ *                   JLend (info@jlend.ru)
+ *                   Профиль пользователя: http://joomlaforum.ru/index.php?action=profile;u=190209
+ *                   Филипп Сорокин (Philip Sorokin) (philip.sorokin@gmail.com) https://addondev.com 
+ *                   Профиль пользователя: http://joomlaforum.ru/index.php?action=profile;u=189546
  * @copyright        (C) 2016 by JLend(http://www.jlend.ru)
  * @license          GNU General Public License version 2 or later; see LICENSE.txt
  * @repositories     https://github.com/jlend/scan_dir
- *					 Топик поддержки расширения:  http://joomlaforum.ru/index.php/topic,323669.msg1620914.html
+ *                   Топик поддержки расширения:  http://joomlaforum.ru/index.php/topic,323669.msg1620914.html
  **/
  
 defined('_JEXEC') or die('Restricted Access');
