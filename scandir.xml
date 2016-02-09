@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.4" type="plugin" group="system" method="upgrade">
 	<name>PLG_SYSTEM_SCANDIR</name>
-	<author>JLend & Philip Sorokin</author>
+	<author>JLend and Philip Sorokin</author>
 	<creationDate>18-01-2016</creationDate>
 	<copyright>Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<authorEmail>jlend@yandex.ru & philip.sorokin@gmail.com</authorEmail>
-	<authorUrl>www.jlend.ru & addondev.com</authorUrl>
+	<authorEmail>jlend@yandex.ru and philip.sorokin@gmail.com</authorEmail>
+	<authorUrl>www.jlend.ru and addondev.com</authorUrl>
 	<version>1.0</version>
 	<description>PLG_SYSTEM_SCANDIR_XML_DESCRIPTION</description>
 	<files>
@@ -39,7 +39,8 @@
 					rows="3"
 					cols="40"
 					label="PLG_SCANDIR_FIELD_EXCLUDE_DIR_LABEL"
-					description="PLG_SCANDIR_FIELD_EXCLUDE_DIR_DESC" />
+					description="PLG_SCANDIR_FIELD_EXCLUDE_DIR_DESC"
+					default="cache\" />
 
 				<field
 					name="exclude_ext"
@@ -48,7 +49,8 @@
 					rows="3"
 					cols="40"
 					label="PLG_SCANDIR_FIELD_EXCLUDE_EXT_LABEL"
-					description="PLG_SCANDIR_FIELD_EXCLUDE_EXT_DESC" />
+					description="PLG_SCANDIR_FIELD_EXCLUDE_EXT_DESC"
+					default="doc;log;bak;xls;zip;xml;ini;sql;css" />
 				<field
 					name="exclude_file"
 					type="textarea"
