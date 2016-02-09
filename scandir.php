@@ -39,6 +39,15 @@ class plgSystemScanDir extends JPlugin {
 		
 		// Выбераем режим сканирования по атрибутам или содержанию файла
 		$scan = $this->params->get('scan');
+		
+		// Исключенные директории
+		$exc_dir = $this->params->get('exclude_dir');
+		
+		// Исключенные файлы по расширениям
+		$exc_ext = $this->params->get('exclude_ext');
+		
+		// Исключенные файлы по названиям
+		$exc_file = $this->params->get('exclude_file');
 
 		$time_start = microtime(true);
 		
@@ -77,21 +86,21 @@ class plgSystemScanDir extends JPlugin {
 			 * Exclude File List - Separate each entry with a semicolon ;
 			 * Full filename including path and extension. [CASE INSENSITIVE]
 			 */
-			$excludeFileList = ".{$name}";
+			$excludeFileList = ".{$name};" . $exc_file . "";
 
 			/**
 			 * Exclude Extension List - Separate each entry with a semicolon ;
 			 * Only extension type. [CASE INSENSITIVE]
 			 * Do not leave trailing semicolon!
 			 */
-			$excludeExtensionList = "doc;log;bak;xls;zip";
+			$excludeExtensionList = "" . $exc_ext . "";
 
 			/**
 			 * Exclude directory List - Separate each entry with a semicolon ;
 			 * Only relative dir name including trailing dir separator. [CASE INSENSITIVE]
 			 * Do not leave trailing semicolon!
 			 */
-			$excludeDirList = "cache/";
+			$excludeDirList = "" . $exc_dir . "";
 			
 			/**
 			 * Указываем email из настроек для отправки.
