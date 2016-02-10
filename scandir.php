@@ -16,15 +16,17 @@
  
 defined('_JEXEC') or die('Restricted Access');
 
-class plgSystemScanDir extends JPlugin {
+class plgSystemScanDir extends JPlugin
+{
 
-	PUBLIC FUNCTION onBeforeRender() {
-	
+	PUBLIC FUNCTION onBeforeRender() 
+	{
 		$app = JFactory::getApplication();
 		$jinput = $app->input;
 		
 		//В админке не работаем
-		if($app->isAdmin()) {
+		if($app->isAdmin()) 
+		{
 			return false;
 		}
 
@@ -51,12 +53,12 @@ class plgSystemScanDir extends JPlugin {
 
 		$time_start = microtime(true);
 		
-		$file_time = filemtime(".".$name);	
+		$file_time = filemtime(".{$name}");	
 		$scan_time = $file_time + ($time * 60);
 		$new_time = time();
 
-		if(file_exists(".{$name}") && $scan_time < $new_time) {
-
+		if(file_exists(".{$name}") && $scan_time < $new_time)
+		{
 			//Закомментирована отладка
 //			echo "<html><pre>";
 
@@ -334,24 +336,28 @@ class plgSystemScanDir extends JPlugin {
 			{
 				if($emailAddressToAlert != "")
 				{
-					$headers = "Return-path: $emailAddressToAlert\r\n";
-					$headers .= "Reply-to: $emailAddressToAlert\r\n";
-					$headers .= "X-Priority: 1\r\n";
-					$headers .= "MIME-Version: 1.0\r\n";
-					$headers .= "Content-type: text/plain; charset=UTF-8\r\n";
-					$headers .= "Content-Transfer-Encoding: 7bit\r\n";
-					$headers .= "From: $emailAddressToAlert\r\n";
-					$headers .= "Organization: $servername\r\n";
-					$headers .= "\n\n";
+					$mailer = JFactory::getMailer();
+					
+					$config = JFactory::getConfig();
+					$sender = array(
+					    $config->get('mailfrom'),
+					    $config->get('fromname') 
+					);
+					
+					$mailer->setSender($sender);
+					$mailer->addRecipient($emailAddressToAlert);
+					$mailer->setSubject($emailSubject);
 					
 					//Отправляем новое значение хеш-на электронную почту.
-					$emailBody = "Файлы в папке '$scandir' были изменены с момента " . $oldsettings["date"] . ".\n" . $summary . "\n".
+					$emailBody = "Файлы в папке '$scandir' были изменены с момента " . $oldsettings["date"] . ".\n" . $summary . "\n";
 					
 					//Указываем время за которое время было выполнено сканирование.
-					$changes. "\nВремя сканирования " . (microtime(true)-$time_start) . " seconds.\n";
+					$emailBody .= $changes . "\nВремя сканирования " . (microtime(true) - $time_start) . " seconds.\n";
+					
+					$mailer->setBody($emailBody);
 					
 					//Отправляем сообщение на email.
-					mail($emailAddressToAlert, $emailSubject, $emailBody, $headers);
+					$mailer->Send();
 				}
 			}
 
@@ -386,9 +392,10 @@ class plgSystemScanDir extends JPlugin {
 			
 			// Пишем информацию в лог файл .scan_dirs.log который лежит в папке /logs/
 			$this->slog(date("Y-m-d H:i:s") . " Done in " . (microtime(true) - $time_start) . " seconds!\n\n"); 
-
 		}
-}		
+	}
+	
+	
 	/**
 	* Пишем в лог файл .scan_dirs.log в папку /logs/ для разработки и тестирования.
 	*/
