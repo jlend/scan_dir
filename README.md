@@ -5,7 +5,7 @@ The plugin checks the files on the changes made to the them and sends reports to
 
 1. Выбор исключений по:
 -директориям
--по расширениям файлов
+-расширениям файлов
 -имени файла
 
 2. Настроена стандартная функция отправки почты которую пользователь выбрал в глобальных настройках, через SMTP или MAIL.
@@ -19,5 +19,5 @@ The plugin checks the files on the changes made to the them and sends reports to
 6. Установка времени проверки в минутах.
 
 7. Выбор записи хеш-сумм по:
-- атрибутам
-- содержимому
+-атрибутам
+-содержимому
